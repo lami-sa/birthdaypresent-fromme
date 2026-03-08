@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Lamisa 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&family=Sacramento&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --primary-color:#e75480;
+  --secondary-color:#ff9a9e;
+  --accent-color:#fad0c4;
+  --text-color:#555;
+  --light-bg:#fff9f9;
+  --gold-color:#ffd700;
+}
+body{margin:0;padding:0;font-family:'Poppins',sans-serif;background:var(--light-bg);overflow-x:hidden;color:var(--text-color);text-align:center;position:relative}
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, rgba(255,154,158,0.05) 0%, rgba(250,208,196,0.05) 100%), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;background-size:cover;opacity:0.15;z-index:-1}
+
+/* Floating Elements */
+.floating-elements{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+.floating-element{position:absolute;opacity:0;font-size:24px;animation:floatElement 15s linear infinite;filter:drop-shadow(0 0 5px rgba(255,255,255,0.7))}
+
+/* Container */
+.container{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px 20px}
+
+/* Header */
+.header-wrapper{position:relative;margin-bottom:20px}
+h1{font-size:clamp(3.5rem,9vw,6rem);font-family:'Dancing Script',cursive;margin-bottom:0.3em;color:var(--primary-color);text-shadow:0 0 15px rgba(231,84,128,0.4), 0 0 30px rgba(231,84,128,0.2);font-weight:700;position:relative;z-index:1;animation:pop 1.5s ease;background:linear-gradient(45deg, var(--primary-color), #ff9a9e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.title-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120%;height:120%;background:radial-gradient(circle, rgba(231,84,128,0.1) 0%, transparent 70%);z-index:-1;filter:blur(20px)}
+
+/* Birthday Title - UPDATED */
+.birthday-title{font-family:'Sacramento',cursive;font-size:3.5rem;color:var(--primary-color);margin:10px 0;text-shadow:2px 2px 4px rgba(0,0,0,0.1);position:relative;display:inline-block;padding:15px 40px;background:rgba(255,255,255,0.95);border-radius:50px;box-shadow:0 15px 35px rgba(231,84,128,0.2);border:3px solid rgba(231,84,128,0.3);animation:pulse 2s infinite}
+.birthday-title::before{content:"🎉";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:2rem}
+.birthday-title::after{content:"🎂";position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:2rem}
+
+/* Life Timer */
+.life-timer-container{margin:30px 0;padding:30px;background:rgba(255,255,255,0.95);border-radius:25px;box-shadow:0 15px 35px rgba(231,84,128,0.2);max-width:700px;width:95%;border:1px solid rgba(255,255,255,0.5);position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+.life-timer-container::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color))}
+.life-timer-title{font-size:2.2rem;color:var(--primary-color);margin-bottom:10px;font-weight:800;font-family:'Dancing Script', cursive;letter-spacing:1px}
+.life-timer-subtitle{font-size:1.1rem;color:var(--text-color);margin-bottom:25px;opacity:0.9;font-weight:300}
+.life-timer-box{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.life-timer-item{background:linear-gradient(135deg, white, #fff9f9);padding:20px 15px;border-radius:20px;min-width:100px;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:all 0.4s ease;border:1px solid rgba(255,154,158,0.3);position:relative;overflow:hidden}
+.life-timer-item::before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg, var(--primary-color), var(--accent-color))}
+.life-timer-item:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 15px 30px rgba(231,84,128,0.25)}
+.life-timer-number{font-size:2.8rem;font-weight:900;color:var(--primary-color);line-height:1;font-family:'Poppins', sans-serif;text-shadow:1px 1px 3px rgba(0,0,0,0.1)}
+.life-timer-label{font-size:1rem;color:var(--text-color);margin-top:10px;font-weight:500;letter-spacing:1px}
+
+/* Image Frame */
+.image-frame-wrapper{position:relative;margin:40px 0}
+.image-frame{position:relative;width:min(320px,80vw);height:min(320px,80vw);border-radius:50%;background:linear-gradient(135deg, var(--secondary-color), var(--accent-color), #a2d2ff);padding:15px;box-shadow:0 20px 40px rgba(233,150,180,0.5), inset 0 0 50px rgba(255,255,255,0.5);animation:float 6s ease-in-out infinite;display:flex;justify-content:center;align-items:center;margin:20px 0}
+.image-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:8px solid white;animation:gentleScale 8s ease-in-out infinite;box-shadow:0 0 30px rgba(0,0,0,0.1)}
+
+/* Funny Picture Frame - MODIFIED: now shows image farha (2) inside circle */
+.funny-frame-container{position:relative;margin:30px 0;display:none}
+.funny-frame{position:relative;width:min(220px,55vw);height:min(220px,55vw);border-radius:50%;background:linear-gradient(135deg,#ffb347,#ffcc33,#ffd700);padding:0;  /* removed padding for full image */ 
+box-shadow:0 15px 35px rgba(255,179,71,0.5), 0 0 50px rgba(255,215,0,0.3);margin:0 auto;animation:popScale 0.8s ease forwards;border:3px solid white;display:flex;justify-content:center;align-items:center;overflow:hidden}
+/* Removed the emoji pseudo-elements to show clean image */
+.funny-frame::before{content:none;}
+.funny-frame::after{content:none;}
+.funny-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+.funny-label{margin-top:15px;color:var(--primary-color);font-size:1.3rem;font-weight:600;font-family:'Dancing Script', cursive}
+
+/* Message */
+.message{margin-top:40px;font-size:1.1em;max-width:min(850px,95%);animation:fadeInUp 3s ease-in-out;color:var(--text-color);position:relative;padding:40px;background:rgba(255,255,255,0.95);border-radius:30px;box-shadow:0 20px 50px rgba(0,0,0,0.15);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.8);overflow:hidden}
+.message::before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--secondary-color));border-radius:30px 30px 0 0}
+.message-content{position:relative;z-index:1}
+.message p.stylish{font-family:'Sacramento',cursive;font-size:clamp(2.5rem,6vw,3.5rem);color:var(--primary-color);font-weight:700;letter-spacing:1px;text-shadow:2px 2px 4px rgba(0,0,0,0.1);margin:30px 0}
+.message p.extra{font-family:'Parisienne',cursive;font-size:clamp(1.5rem,4vw,2rem);color:#444;font-weight:600;text-shadow:1px 1px 2px rgba(0,0,0,0.1);line-height:1.8;margin:25px 0}
+.signature{font-family:'Dancing Script',cursive;font-size:clamp(2.2rem,5vw,3rem);color:var(--primary-color);margin-top:40px;text-align:right;position:relative;padding-right:20px}
+.signature::before{content:"";position:absolute;top:-20px;right:0;width:150px;height:3px;background:linear-gradient(90deg,transparent,var(--primary-color))}
+
+/* Cake Animation Area */
+.cake-animation-area{position:relative;width:100%;height:350px;margin:50px 0;overflow:hidden}
+.cake-container{position:absolute;bottom:-350px;left:50%;transform:translateX(-50%);width:min(300px,70vw);height:min(300px,70vw);animation:riseUp 2.5s ease-out forwards 0.5s}
+.cake{position:relative;width:100%;height:100%;cursor:pointer;transition:all 0.4s ease;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.2))}
+.cake:hover{transform:scale(1.08);filter:drop-shadow(0 15px 30px rgba(0,0,0,0.3))}
+.cake-left,.cake-right{position:absolute;top:0;width:50%;height:100%;overflow:hidden;transition:.8s ease}
+.cake-left{left:0}
+.cake-right{right:0}
+.cake-right img{transform:translateX(-50%)}
+.cake.cut .cake-left{transform:translateX(-70px) rotate(-10deg)}
+.cake.cut .cake-right{transform:translateX(70px) rotate(10deg)}
+.cake-text{margin-top:25px;color:var(--primary-color);font-weight:700;font-size:1.5rem;opacity:0;animation:fadeIn 1s ease forwards 3s;text-shadow:0 0 10px rgba(231,84,128,0.3);letter-spacing:1px}
+
+/* Photo Gallery */
+.photo-gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin:80px auto;max-width:1000px;padding:0 20px}
+.gallery-item{width:calc(33.333% - 25px);border-radius:20px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.15);transition:all 0.6s ease;aspect-ratio:1/1;opacity:0;transform:translateY(50px)}
+.gallery-item.visible{opacity:1;transform:translateY(0)}
+.gallery-item.left{transform:translateX(-150px)}
+.gallery-item.right{transform:translateX(150px)}
+.gallery-item.left.visible,.gallery-item.right.visible{transform:translateX(0)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.gallery-item:hover{transform:translateY(-10px)!important;box-shadow:0 25px 50px rgba(231,84,128,0.3)}
+.gallery-item:hover img{transform:scale(1.1)}
+
+/* Popup Animation */
+.popup{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;justify-content:center;align-items:center;z-index:1000;animation:fadeIn 0.6s ease forwards}
+.popup-content{background:linear-gradient(135deg, white 0%, #fff9f9 100%);padding:50px 40px;border-radius:30px;text-align:center;transform:scale(0);animation:popScale 0.7s ease forwards;box-shadow:0 25px 60px rgba(0,0,0,0.4), 0 0 100px rgba(231,84,128,0.3);position:relative;max-width:90%;width:500px;border:1px solid rgba(255,255,255,0.8);overflow:hidden}
+.popup-content::before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg, var(--primary-color), #ff9a9e, var(--primary-color))}
+.popup-content h2{font-family:'Sacramento',cursive;font-size:3.5rem;color:var(--primary-color);margin-bottom:20px;font-weight:800;letter-spacing:2px}
+.popup-content p{font-size:1.6rem;color:#555;margin-bottom:35px;line-height:1.6;font-weight:500}
+.popup-content button{padding:15px 40px;background:linear-gradient(135deg, var(--primary-color), #ff9a9e);color:white;border:none;border-radius:30px;font-size:1.2rem;cursor:pointer;transition:all 0.4s ease;font-weight:600;letter-spacing:1px;box-shadow:0 10px 25px rgba(231,84,128,0.4)}
+.popup-content button:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(231,84,128,0.6);letter-spacing:2px}
+
+/* Keyframes */
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes popScale{0%{transform:scale(0);}60%{transform:scale(1.1);}100%{transform:scale(1);}}
+@keyframes floatElement{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100px) rotate(360deg);opacity:0}}
+@keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
+@keyframes gentleScale{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes sparkle{0%{opacity:.5;transform:scale(.9)}100%{opacity:1;transform:scale(1.1)}}
+@keyframes riseUp{from{bottom:-350px;}to{bottom:0;}}
+@keyframes bounce{
+  0%, 100% {transform: translateY(0) rotate(0deg);}
+  50% {transform: translateY(-15px) rotate(10deg);}
+}
+@keyframes fall{
+  0%{transform:translateY(-10px) rotate(0deg);opacity:1;}
+  100%{transform:translateY(100vh) rotate(360deg);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Elements -->
+<div class="floating-elements" id="elements-container"></div>
+
+<div class="container">
+<!-- Header -->
+<div class="header-wrapper">
+  <div class="title-glow"></div>
+  <h1>Happy Birthday Lamisa 🌸</h1>
+</div>
+
+<!-- Birthday Title - UPDATED -->
+<div class="birthday-title" id="birthdayTitle">Happy 19th Birthday! 🎂</div>
+
+<!-- Life Timer -->
+<div class="life-timer-container">
+  <div class="life-timer-title">Lamisa's Beautiful Journey ✨</div>
+  <div class="life-timer-subtitle">Celebrating every precious moment since March 22, 2007</div>
+  <div class="life-timer-box">
+    <div class="life-timer-item">
+      <div class="life-timer-number" id="lifeDays">0000</div>
+      <div class="life-timer-label">DAYS</div>
+    </div>
+    <div class="life-timer-item">
+      <div class="life-timer-number" id="lifeHours">00</div>
+      <div class="life-timer-label">HOURS</div>
+    </div>
+    <div class="life-timer-item">
+      <div class="life-timer-number" id="lifeMinutes">00</div>
+      <div class="life-timer-label">MINUTES</div>
+    </div>
+    <div class="life-timer-item">
+      <div class="life-timer-number" id="lifeSeconds">00</div>
+      <div class="life-timer-label">SECONDS</div>
+    </div>
+  </div>
+  <div style="margin-top:20px;font-size:1rem;color:#e75480;font-weight:600;font-style:italic;">
+    💖 Every moment is a beautiful memory 💖
+  </div>
+</div>
+
+<!-- Image Frame -->
+<div class="image-frame-wrapper">
+  <div class="image-frame">
+    <img src="lamisa.jpg" alt="Lamisa's Picture">
+  </div>
+</div>
+
+<!-- Funny Picture Frame - MODIFIED: now shows farha (2) image inside circle -->
+<div class="funny-frame-container" id="funnyFrameContainer">
+  <div class="funny-frame">
+    <!-- Replaced emoji text with the actual image farha (2) 180x399 fits with object-fit cover -->
+    <img src="farha.jpg" alt="Farha" style="width:100%; height:100%; object-fit:cover;">
+  </div>
+  <div class="funny-label">Gardan tera 💖</div>
+</div>
+
+<!-- Cake Animation Area -->
+<div class="cake-animation-area">
+<div class="cake-container">
+  <div class="cake" id="cake">
+    <div class="cake-left"><img src="cake.jpg" alt="Cake"></div>
+    <div class="cake-right"><img src="cake.jpg" alt="Cake"></div>
+  </div>
+  <div class="cake-text" id="cakeText">✨ Tap to cut the birthday cake ✨</div>
+</div>
+</div>
+
+<!-- Message -->
+<div class="message">
+  <div class="message-content">
+    <p class="stylish">Wishing you a day as beautiful as you are</p>
+    <p class="extra">May your birthday be filled with sunshine, laughter, and happiness that lasts throughout the year.</p>
+    <p class="stylish">May all your dreams blossom like spring flowers</p>
+    <p class="extra">Today we celebrate the wonderful person you are and the joy you bring to everyone around you.</p>
+    <p class="stylish">With love that still lingers like perfume</p>
+    <div class="signature">Your best friend 💌</div>
+  </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="photo-gallery" id="photoGallery">
+<div class="gallery-item left" data-delay="0"><img src="memory1.jpg" alt="Happy memory 1"></div>
+<div class="gallery-item right" data-delay="150"><img src="memory2.jpg" alt="Happy memory 2"></div>
+<div class="gallery-item left" data-delay="300"><img src="memory3.jpg" alt="Happy memory 3"></div>
+<div class="gallery-item right" data-delay="450"><img src="memory4.jpg" alt="Happy memory 4"></div>
+<div class="gallery-item left" data-delay="600"><img src="memory5.jpg" alt="Happy memory 5"></div>
+<div class="gallery-item right" data-delay="750"><img src="memory6.jpg" alt="Happy memory 6"></div>
+</div>
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>Make a wish Lamisa 💖</h2>
+<p>Close your eyes & wish something beautiful ✨</p>
+<button onclick="closePopup()">Done</button>
+</div>
+</div>
+
+<!-- Audio -->
+<audio id="knifeSound" src="knife.mp3"></audio>
+<audio id="clapSound" src="clap.mp3"></audio>
+<audio id="bgMusic" loop>
+<source src="happy-birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Floating elements
+function createFloatingElements(){
+  const container=document.getElementById('elements-container');
+  const elements=['❤','🌸','✨','🎂','🎉','🎁'];
+  const colors=['#ff6b8b','#ff8e9e','#ffb3c1','#ffd1da','#a2d2ff','#bde0fe'];
+  for(let i=0;i<20;i++){
+    const e=document.createElement('div');
+    e.classList.add('floating-element');
+    e.innerHTML=elements[Math.floor(Math.random()*elements.length)];
+    e.style.left=Math.random()*100+'vw';
+    e.style.animationDuration=10+Math.random()*15+'s';
+    e.style.animationDelay=Math.random()*8+'s';
+    e.style.fontSize=20+Math.random()*25+'px';
+    e.style.color=colors[Math.floor(Math.random()*colors.length)];
+    container.appendChild(e);
+  }
+}
+
+// Lamisa's Life Timer
+function updateLifeTimer(){
+  const birthDate = new Date(2007, 2, 22); // March 22, 2007
+  const now = new Date();
+  const diff = now - birthDate;
+  
+  const totalSeconds = Math.floor(diff / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+  const totalDays = Math.floor(totalHours / 24);
+  
+  const days = totalDays;
+  const hours = totalHours % 24;
+  const minutes = totalMinutes % 60;
+  const seconds = totalSeconds % 60;
+  
+  document.getElementById('lifeDays').textContent = days.toString().padStart(4, '0');
+  document.getElementById('lifeHours').textContent = hours.toString().padStart(2, '0');
+  document.getElementById('lifeMinutes').textContent = minutes.toString().padStart(2, '0');
+  document.getElementById('lifeSeconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+// Update birthday title based on actual date
+function updateBirthdayTitle(){
+  const today = new Date();
+  const birthdayTitle = document.getElementById('birthdayTitle');
+  
+  // Check if today is March 22 (birthday)
+  if(today.getDate() === 22 && today.getMonth() === 2){ // March is 2 (0-indexed)
+    birthdayTitle.innerHTML = "Happy Birthday Lamisa! 🎉🎂";
+    // Add birthday animation
+    const interval = setInterval(() => {
+      for(let i=0;i<10;i++){
+        setTimeout(() => {
+          createBirthdaySparkle();
+        }, i*100);
+      }
+    }, 2000);
+  } else {
+    // Calculate age
+    const birthYear = 2007;
+    const currentYear = today.getFullYear();
+    let age = currentYear - birthYear;
+    
+    // Adjust age if birthday hasn't occurred this year
+    if(today.getMonth() < 2 || (today.getMonth() === 2 && today.getDate() < 22)){
+      age--;
+    }
+    
+    // Show next birthday age
+    const nextAge = age + 1;
+    birthdayTitle.innerHTML = `Happy ${nextAge}th Birthday! 🎂`;
+  }
+}
+
+// Create birthday sparkles
+function createBirthdaySparkle(){
+  const sparkle = document.createElement('div');
+  sparkle.innerHTML = '✨';
+  sparkle.style.position = 'fixed';
+  sparkle.style.left = Math.random()*100 + 'vw';
+  sparkle.style.top = Math.random()*100 + 'vh';
+  sparkle.style.fontSize = 15+Math.random()*25 + 'px';
+  sparkle.style.animation = `fall ${1+Math.random()*3}s linear forwards`;
+  sparkle.style.zIndex = '1000';
+  sparkle.style.opacity = '0.8';
+  document.body.appendChild(sparkle);
+  setTimeout(() => sparkle.remove(), 4000);
+}
+
+// Cake cut + popup - FIXED with image show
+const cake = document.getElementById("cake");
+const cakeText = document.getElementById("cakeText");
+const popup = document.getElementById("popup");
+const funnyFrameContainer = document.getElementById("funnyFrameContainer"); // FIXED
+const knife = document.getElementById("knifeSound");
+const clap = document.getElementById("clapSound");
+let cut = false;
+
+cake.addEventListener("click", () => {
+  if(cut) return;
+  cut = true;
+  cake.classList.add("cut");
+  cakeText.innerText = "🎂 Cake cut! 🎂";
+  knife.play();
+  
+  // Confetti blast
+  for(let i=0;i<100;i++){
+    setTimeout(() => {
+      createConfetti();
+    }, i*20);
+  }
+  
+  setTimeout(() => clap.play(), 600);
+  
+  // Show funny frame with Farha image
+  setTimeout(() => {
+    funnyFrameContainer.style.display = "block"; 
+  }, 1000);
+  
+  // Show popup
+  setTimeout(() => {
+    popup.style.display = "flex";
+  }, 2500);
+});
+
+function createConfetti(){
+  const shapes = ['❤', '🌸', '✨', '🎉', '🎊'];
+  const c = document.createElement("div");
+  c.innerHTML = shapes[Math.floor(Math.random()*shapes.length)];
+  c.style.left = Math.random()*100 + "vw";
+  c.style.color = `hsl(${Math.random()*360}, 100%, 60%)`;
+  c.style.fontSize = 15 + Math.random()*20 + "px";
+  c.style.position = "fixed";
+  c.style.top = "-30px";
+  c.style.zIndex = "1000";
+  c.style.animation = `fall ${2+Math.random()*3}s linear forwards`;
+  c.style.textShadow = "0 0 5px rgba(255,255,255,0.8)";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 5000);
+}
+
+function closePopup(){
+  popup.style.display = "none";
+}
+
+// Photo gallery scroll animation
+function checkScroll(){
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const triggerBottom = window.innerHeight * 0.85;
+  
+  galleryItems.forEach(item => {
+    const itemTop = item.getBoundingClientRect().top;
+    const delay = parseInt(item.getAttribute('data-delay') || 0);
+    
+    if(itemTop < triggerBottom){
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, delay);
+    }
+  });
+}
+
+// Initialize scroll listener
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', () => {
+  setTimeout(checkScroll, 500);
+});
+
+// Start life timer
+updateLifeTimer();
+setInterval(updateLifeTimer, 1000);
+
+// Update birthday title
+updateBirthdayTitle();
+
+// Music autoplay
+const music = document.getElementById("bgMusic");
+let play = false;
+document.body.addEventListener('click', () => {
+  if(!play){
+    music.volume = 0.5;
+    music.play().then(() => {
+      play = true;
+    }).catch(e => console.log("Music autoplay prevented"));
+  }
+}, {once:true});
+
+// Initialize everything
+window.onload = function(){
+  createFloatingElements();
+  updateLifeTimer();
+  updateBirthdayTitle();
+};
+</script>
+</body>
+</html>
